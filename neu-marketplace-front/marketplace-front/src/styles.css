@@ -2,8 +2,10 @@
  * border radius
  */
 html,body{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:'Roboto', sans-serif;;
     height: 100%;
+    background-color: black;
+    color: white;
 }
 /*Footer*/
 .footer{
@@ -112,7 +114,7 @@ html,body{
     border-radius: 0px;
 }
 .nav {
-    background-color: #000000!important;
+    background-color: transparent!important;
     padding: 8px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
@@ -126,6 +128,8 @@ html,body{
 .nav-tabs{
     list-style: none;
     text-align: center;
+    border-bottom: none;
+    
 }
 
 /* cart superscript */

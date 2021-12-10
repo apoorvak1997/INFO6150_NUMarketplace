@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
 import Badge from '@mui/material/Badge';
 import Typography from '@mui/material/Typography';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
 import moment from 'moment';
 import { addItem, updateItem, removeItem } from './cartHelpers';
+import ShowImageDetails from './ShowImageDetails';
 
-const Cards = ({
+const CardDetails = ({
   product,
   showViewProductButton = true,
   showAddToCartButton = true,
@@ -99,7 +101,7 @@ const Cards = ({
   };
   return (
     <div className="card2 card">
-       <Card style={{height:"400px"}}>
+       <Card style={{height:"800px"}}>
       {/* <CardMedia
         component="img"
         height="140"
@@ -107,7 +109,7 @@ const Cards = ({
         alt="product.name"
       > */}
       <div>
-        <ShowImage item={product} url="product" />
+        <ShowImageDetails style={{height:"100%"}}item={product} url="product" />
         </div>
        
       <CardContent>
@@ -117,17 +119,28 @@ const Cards = ({
         <Typography gutterBottom variant="body2" color="text.secondary">
           ${product.price}
         </Typography>
+        <Typography gutterBottom variant="body2" color="text.secondary">
+          Category: {product.category && product.category.name}
+        </Typography>
+        <Typography gutterBottom variant="body2" color="text.secondary">
+        Added on {moment(product.createdAt).fromNow()}
+        </Typography>
+        <Typography gutterBottom variant="body2" color="text.secondary">
+        {product.description}
+        </Typography>
+        
+
 
         <Badge>
         {showStock(product.quantity)}
         </Badge>
         {showViewButton(showViewProductButton)}
 
-        {showAddToCartBtn(showAddToCartButton)}
+{showAddToCartBtn(showAddToCartButton)}
 
-        {showRemoveButton(showRemoveProductButton)}
+{showRemoveButton(showRemoveProductButton)}
 
-        {showCartUpdateOptions(cartUpdate)}
+{showCartUpdateOptions(cartUpdate)}
 
       </CardContent>
       <CardActions>
@@ -162,4 +175,4 @@ const Cards = ({
   );
 };
 
-export default Cards;
+export default CardDetails;

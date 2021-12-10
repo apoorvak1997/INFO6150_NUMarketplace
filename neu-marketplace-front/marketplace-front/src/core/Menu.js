@@ -2,6 +2,9 @@ import React, { Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
+import HomeIcon from '@mui/icons-material/Home';
+import StoreIcon from '@mui/icons-material/Store';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const isActive = (history, path) => {
     if (history.location.pathname === path) {
@@ -13,14 +16,14 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => (
     <div>
-        <ul className="nav nav-tabs bg-primary">
-            <li className="nav-item">
+        <ul className="nav nav-tabs" style={{backgroundColor:"transparent!important"}}>
+            <li className="nav-item" >
                 <Link
                     className="nav-link"
                     style={isActive(history, "/")}
                     to="/"
                 >
-                    HOME
+                    <HomeIcon/>
                 </Link>
             </li>
 
@@ -30,7 +33,7 @@ const Menu = ({ history }) => (
                     style={isActive(history, "/shop")}
                     to="/shop"
                 >
-                    SHOP
+                    <StoreIcon/>
                 </Link>
             </li>
 
@@ -40,7 +43,7 @@ const Menu = ({ history }) => (
                     style={isActive(history, "/cart")}
                     to="/cart"
                 >
-                    CART{" "}<span><i class="fas fa-shopping-basket"></i></span>
+                    <ShoppingCartIcon/>
 
                     <sup>
                         <small className="cart-badge">{itemTotal()}</small>

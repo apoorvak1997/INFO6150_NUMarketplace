@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './Layout';
 import { read, listRelated } from './apiCore';
-import Card from './Card';
+import Cards from './Card';
+import CardDetails from './CardDetails';
+import NavBar from '../components/NavBar';
 
 const Product = props => {
     const [product, setProduct] = useState({});
@@ -32,26 +33,28 @@ const Product = props => {
     }, [props]);
 
     return (
-        <Layout
-            title={product && product.name}
-            description={product && product.description && product.description.substring(0, 100)}
-            className="container-fluid"
-        >
+        <div>
+        <NavBar/>
+        <div className="container" style={{padding:"3%"}}>
+        <hr style={{backgroundColor:"white"}}/>
+        <h3 style={{textAlign:"center"}}> {product.name} </h3>
+        <hr/>
+        </div>
             <div className="row">
                 <div className="col-8">
-                    {product && product.description && <Card product={product} showViewProductButton={false} />}
+                    {product && product.description && <CardDetails style={{height:"100%"}} product={product} showViewProductButton={false} />}
                 </div>
 
                 <div className="col-4">
                     <h4>Related products</h4>
                     {relatedProduct.map((p, i) => (
                         <div className="mb-3" key={i}>
-                            <Card product={p} />
+                            <Cards product={p} />
                         </div>
                     ))}
                 </div>
             </div>
-        </Layout>
+        </div>
     );
 };
 

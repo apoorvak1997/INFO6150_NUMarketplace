@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './Layout';
+
 import { getProducts } from './apiCore';
 import Card from './Card';
 import Search from './Search';
+import NavBar from '../components/NavBar';
+import first from '../assets/1.jpeg';
+import Footer from '../components/Footer';
+import './Home.css';
 
 const Home = () => {
     const [productsBySell, setProductsBySell] = useState([]);
@@ -36,13 +40,14 @@ const Home = () => {
     }, []);
 
     return (
-        <Layout
-            title="NEU MARKETPLACE"
-            description="Welcome  to NEU Marketplace!"
-            className="container-fluid"
-        >
+        <div >
+            <NavBar/>
+            <br/>
+            <div className = "container">
             <Search />
-            <h2 className="mb-4">New Arrivals</h2>
+            <hr style={{backgroundColor:"white"}}/>
+            <h2 className="centralHeading" >New Arrivals</h2>
+            <hr style={{backgroundColor:"white"}}/>
             <div className="row">
                 {productsByArrival.map((product, i) => (
                     <div key={i} className="col-4 mb-3">
@@ -50,8 +55,10 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-
-            <h2 className="mb-4">Best Sellers</h2>
+            
+            <hr style={{backgroundColor:"white"}}/>
+            <h2 className="centralHeading">Trending</h2>
+            <hr/>
             <div className="row">
                 {productsBySell.map((product, i) => (
                     <div key={i} className="col-4 mb-3">
@@ -59,7 +66,10 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-        </Layout>
+            </div>
+        {/* </Layout> */}
+        <Footer/>
+        </div>
     );
 };
 

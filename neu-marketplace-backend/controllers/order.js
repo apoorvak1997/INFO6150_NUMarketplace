@@ -2,7 +2,7 @@ const { Order, CartItem } = require('../models/order');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 // sendgrid for email npm i @sendgrid/mail
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey('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');
+sgMail.setApiKey('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');
 
 exports.orderById = (req, res, next, id) => {
     Order.findById(id)
@@ -33,8 +33,8 @@ exports.create = (req, res) => {
         // order.products.length
         // order.amount
         const emailData = {
-            to: 'joharekalyani@gmail.com',
-            from: 'noreply@neu_marketplaces.com',
+            to: 'ba.swaroop@gmail.com',
+            from: 'bharadwaj.ni@northeastern.edu',
             subject: `A new order is received`,
             html: `
             <p>Customer name:</p>

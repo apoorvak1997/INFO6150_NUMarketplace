@@ -6,14 +6,14 @@ import { signin, authenticate, isAuthenticated } from "../auth";
 const Signin = () => {
     const [values, setValues] = useState({
         email: "",
-        nuid:"",
+        //nuid:"",
         password: "",
         error: "",
         loading: false,
         redirectToReferrer: false
     });
 
-    const { email, nuid, password, loading, error, redirectToReferrer } = values;
+    const { email, password, loading, error, redirectToReferrer } = values;
     const { user } = isAuthenticated();
 
     const handleChange = name => event => {
@@ -23,7 +23,7 @@ const Signin = () => {
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, error: false, loading: true });
-        signin({ email,nuid, password }).then(data => {
+        signin({ email, password }).then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error, loading: false });
             } else {
@@ -49,15 +49,6 @@ const Signin = () => {
                 />
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">NUID</label>
-                <input
-                    onChange={handleChange("nuid")}
-                    type="text"
-                    className="form-control"
-                    value={nuid}
-                />
-            </div>
 
             <div className="form-group">
                 <label className="text-muted">Password</label>

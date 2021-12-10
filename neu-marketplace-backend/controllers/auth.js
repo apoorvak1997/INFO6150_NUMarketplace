@@ -24,8 +24,8 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
     //find the user based on email
-    const { email, password, nuid } = req.body
-    User.findOne({ email, nuid }, (err, user) => {
+    const { email, password} = req.body
+    User.findOne({ email}, (err, user) => {
         if (err || !user) {
             return res.status(400).json({
                 error: 'User with that email or nuid does not exist'
@@ -44,7 +44,7 @@ exports.signin = (req, res) => {
         res.cookie('t', token, { expire: new Date() + 9999 });
         const { _id, name, email, role } = user
 
-        return res.json({ token, user: { _id, email, name, nuid, role } });
+        return res.json({ token, user: { _id, email, name, role } });
     });
 };
 exports.signout = (req, res) => {

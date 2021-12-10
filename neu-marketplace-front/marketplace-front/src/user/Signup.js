@@ -6,7 +6,7 @@ import { signup } from '../auth';
 const Signup = () => {
     const [values, setValues] = useState({
         name: '',
-        nuid: '',
+        //nuid: '',
         role: '',
         email: '',
         password: '',
@@ -14,7 +14,7 @@ const Signup = () => {
         success: false
     });
 
-    const { name, nuid, role, email, password, success, error } = values;
+    const { name, role, email, password, success, error } = values;
     var roleValue = null;
     console.log(values);
     const handleChange = name => event => {
@@ -25,7 +25,7 @@ const Signup = () => {
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, error: false });
-        signup({ name, nuid, role, email, password }).then(data => {
+        signup({ name, role, email, password }).then(data => {
 
 
 
@@ -35,7 +35,7 @@ const Signup = () => {
                 setValues({
                     ...values,
                     name: '',
-                    nuid: '',
+                   // nuid: '',
                     role: '',
                     email: '',
                     password: '',
@@ -53,10 +53,8 @@ const Signup = () => {
                 <input onChange={handleChange('name')} type="text" className="form-control" value={name} />
             </div>
 
-            <div className="form-group">
-                <label className="text-muted">NUID</label>
-                <input onChange={handleChange('nuid')} type="text" className="form-control" value={nuid} />
-            </div>
+            
+        
 
             <div className="form-group">
                 <label className="text-muted">Role</label><br></br>

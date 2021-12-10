@@ -32,13 +32,6 @@ const userSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
-    nuid: {
-        type: Number,
-        trim: true,
-        required: true,
-        maxlength: 9,
-        minlength: 9
-    },
 },
     { timestamps: true }
 

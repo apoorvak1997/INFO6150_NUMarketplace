@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Badge from '@mui/material/Badge';
 import Typography from '@mui/material/Typography';
 import { Link, Redirect } from 'react-router-dom';
-import ShowImage from './ShowImage';
 import moment from 'moment';
 import { addItem, updateItem, removeItem } from './cartHelpers';
 import ShowImageDetails from './ShowImageDetails';
+import Button from '@mui/material/Button';
 
 const CardDetails = ({
   product,
@@ -36,11 +35,13 @@ const CardDetails = ({
   const addToCart = () => {
     // console.log('added');
     addItem(product, setRedirect(true));
+    shouldRedirect(true);
+
   };
 
   const shouldRedirect = redirect => {
     if (redirect) {
-      return <Redirect to="/cart" />;
+      window.location.href="/cart";
     }
   };
 
@@ -56,7 +57,7 @@ const CardDetails = ({
 
   const showStock = quantity => {
     return quantity > 0 ? (
-      <span></span>
+        <span></span>
     ) : (
       <span className="badge badge-primary badge-pill">Sold out</span>
     );
@@ -100,8 +101,12 @@ const CardDetails = ({
     );
   };
   return (
+    
     <div className="card2 card">
+        
        <Card style={{height:"800px"}}>
+       
+       
       {/* <CardMedia
         component="img"
         height="140"
@@ -111,23 +116,26 @@ const CardDetails = ({
       <div>
         <ShowImageDetails style={{height:"100%"}}item={product} url="product" />
         </div>
-       
       <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
-          {product.name}
+          <Typography variant="p" color="text.secondary" textAlign="right">
+        Added {moment(product.createdAt).fromNow()}
         </Typography>
-        <Typography gutterBottom variant="body2" color="text.secondary">
-          ${product.price}
+          <hr/>
+        <div style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
+        <Typography gutterBottom variant="h6" color="text.secondary">
+          Price : ${product.price}
         </Typography>
-        <Typography gutterBottom variant="body2" color="text.secondary">
+        <Typography gutterBottom variant="6" color="text.secondary">
           Category: {product.category && product.category.name}
         </Typography>
-        <Typography gutterBottom variant="body2" color="text.secondary">
-        Added on {moment(product.createdAt).fromNow()}
+        </div>
+        <hr/>
+        <Typography gutterBottom variant="p" color="text.secondary" textAlign="center">
+        " {product.description} "
+        
         </Typography>
-        <Typography gutterBottom variant="body2" color="text.secondary">
-        {product.description}
-        </Typography>
+        
+        <Button variant="contained" style={{backgroundColor:"green", marginLeft:"40%"}} onClick={addToCart}> Add to cart </Button>
         
 
 
@@ -136,7 +144,7 @@ const CardDetails = ({
         </Badge>
         {showViewButton(showViewProductButton)}
 
-{showAddToCartBtn(showAddToCartButton)}
+{/* {showAddToCartBtn(showAddToCartButton)} */}
 
 {showRemoveButton(showRemoveProductButton)}
 

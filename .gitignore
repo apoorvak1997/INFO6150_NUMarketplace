@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 .env
 # dependencies
@@ -22,3 +23,21 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+neu-marketplace-backend/.env
+neu-marketplace-backend/.env
+neu-marketplace-backend/node_modules/.bin/is-ci
+neu-marketplace-backend/node_modules/.bin/mime
+neu-marketplace-backend/node_modules/.bin/nodemon
+neu-marketplace-backend/node_modules/.bin/nodetouch
+neu-marketplace-backend/node_modules/.bin/nopt
+neu-marketplace-backend/node_modules/.bin/rc
+neu-marketplace-backend/node_modules/.bin/rc
+neu-marketplace-backend/node_modules/.bin/semver
+neu-marketplace-backend/node_modules/.bin/uuid
+neu-marketplace-backend/node_modules/make-dir/node_modules/.bin/semver
+neu-marketplace-backend/node_modules/package-json/node_modules/.bin/semver
+neu-marketplace-backend/node_modules/semver-diff/node_modules/.bin/semver
+neu-marketplace-front/marketplace-front/package-lock.json
+

@@ -112,7 +112,7 @@ const Orders = () => {
                     </li>
                     <li className="list-group-item">Amount: ${o.amount}</li>
                     <li className="list-group-item">
-                      {/* Ordered by: {o.user.name} */}
+                     Ordered by: {o.user.name} 
                     </li>
                     <li className="list-group-item">
                       Ordered on: {moment(o.createdAt).fromNow()}

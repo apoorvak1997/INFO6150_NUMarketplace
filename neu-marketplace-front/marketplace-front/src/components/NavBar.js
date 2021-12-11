@@ -15,38 +15,6 @@ import Logo from '../assets/NU_Monogram_RGB_W.png';
 import Menus from '../core/Menu';
 
 
-
-// const SearchIconWrapper = styled('div')(({ theme }) => ({
-//   padding: theme.spacing(0, 2),
-//   height: '100%',
-//   position: 'absolute',
-//   pointerEvents: 'none',
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center',
-// }));
-
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: 'inherit',
-//   '& .MuiInputBase-input': {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     // vertical padding + font size from searchIcon
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create('width'),
-//     width: '100%',
-//     [theme.breakpoints.up('md')]: {
-//       width: '20ch',
-//     },
-//   },
-// }));
-// const isActive = (history, path) => {
-//     if (history.location.pathname === path) {
-//         return { color: "#FF0000" };
-//     } else {
-//         return { color: "#ffffff" };
-//     }
-// };
-
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -80,10 +48,6 @@ export default function PrimarySearchAppBar() {
   const handleNotificationMenuClose = () => {
     setNotificationAnchorEl(null);
   };
-
-//   const handleNotificationMenuClose = () => {
-//     setNotificationAnchorEl(null);
-//   };
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (

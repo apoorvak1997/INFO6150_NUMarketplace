@@ -18,6 +18,11 @@ html,body{
     margin-top: 10%;
     
 }
+
+.heading {
+    color: white;
+}
+
 .footer .footer-content{
    
     height:300px;
@@ -288,11 +293,96 @@ select.btn.mr-2{
     /* text-align: center; */
 }
 
-@media only screen and (max-width: 600px) {
+
+@media screen and (max-width : 480px){
     .jumbotron h2 {
         margin-top: 10px;
     }
+
+    .footer { 
+        display : none; 
+        visibility : hidden; 
+    }
+
+    .col-4 {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .productdetail {
+        width: 100% !important;
+    }
+    .relatedproducts{
+        display: block !important;
+    }
+
+    .col-6 {
+        flex: 1;
+        max-width: 100%;
 }
+}
+
+
+/* For iphone: */
+@media screen and (max-width : 320px){
+    .jumbotron h2 {
+        margin-top: 10px;
+    }
+
+    .footer { 
+        display : none; 
+        visibility : hidden; 
+    }
+
+    .col-4 {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .productdetail {
+        width: 100% !important;
+    }
+    .relatedproducts{
+        display: block !important;
+    }
+
+    .col-6 {
+        flex: 1;
+        max-width: 100%;
+}
+} 
+
+
+/* For ipad: */
+@media screen and (max-width : 768px){
+    .jumbotron h2 {
+        margin-top: 10px;
+    }
+
+    .footer { 
+        display : none; 
+        visibility : hidden; 
+    }
+
+    .col-4 {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .productdetail {
+        width: 100% !important;
+    }
+    .relatedproducts{
+        display: block !important;
+    }
+
+    .col-6 {
+        flex: 1;
+        max-width: 100%;
+}
+} 
+
+
 
 /**
  * jumbotron animation

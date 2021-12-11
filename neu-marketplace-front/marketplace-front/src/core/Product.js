@@ -4,6 +4,8 @@ import Cards from "./Card";
 import CardDetails from "./CardDetails";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { style } from "@mui/system";
+import "../styles.css";
 
 const Product = (props) => {
   const [product, setProduct] = useState({});
@@ -38,31 +40,30 @@ const Product = (props) => {
     <div>
       <NavBar />
       <div className="container" style={{ padding: "3%" }}>
-        <hr style={{ backgroundColor: "white" }} />
-        <h3 style={{ textAlign: "center" }}> {product.name} </h3>
         <hr />
+        <h3 style={{ textAlign: "center", color:"white" }}> {product.name} </h3>
+        <hr style={{ backgroundColor: "white" }} />
       </div>
-      <div className="row">
-        <div className="col-8">
-          {product && product.description && (
-            <CardDetails
-              style={{ height: "100%" }}
-              product={product}
-              showViewProductButton={false}
-            />
-          )}
-        </div>
-
-        <div className="col-4">
-          <h4>Related products</h4>
-          {relatedProduct.map((p, i) => (
-            <div className="mb-3" key={i}>
-              <Cards product={p} />
-            </div>
-          ))}
-        </div>
+      <div className ="productdetail" style={{ width: "50%", margin: "0 auto" }}>
+        {product && product.description && (
+          <CardDetails
+            style={{ height: "100%" }}
+            product={product}
+            showViewProductButton={false}
+          />
+        )}
       </div>
-      <Footer />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h3 style={{ textAlign: "center", color:"white" }}>Related products</h3>
+      <hr style={{ backgroundColor: "white" }} />
+      <div className ="relatedproducts" style={{ display: "flex", flexDirection: "row" }}>
+        {relatedProduct.map((p, i) => (
+          <div key={i} className="col-4 mb-3">
+            <Cards product={p} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -193,7 +193,7 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-        <img src={Logo} style={{"backgroundColor": "red","padding":"2%","width": "45px","height":"45px" }} alt =""/>
+        <img src={Logo} style={{"backgroundColor": "white","padding":"2%","width": "45px","height":"45px" }} alt =""/>
       
           </IconButton>
           <Typography
@@ -203,7 +203,7 @@ export default function PrimarySearchAppBar() {
             style={{letterSpacing:"1px", fontSize: "48px"}}
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            NU Marketplace
+            Boston Marketplace
           </Typography>
           {/* <Search>
             <SearchIconWrapper>

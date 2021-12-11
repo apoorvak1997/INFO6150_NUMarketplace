@@ -28,7 +28,7 @@ exports.signin = (req, res) => {
     User.findOne({ email}, (err, user) => {
         if (err || !user) {
             return res.status(400).json({
-                error: 'User with that email or nuid does not exist'
+                error: 'User with that email does not exist'
             });
         }
         //if user is found make sure the email and password  match

@@ -4,14 +4,15 @@
 html,body{
     font-family:'Roboto', sans-serif;;
     height: 100%;
-    background-color: black;
-    color: white;
+    background-color: #5D001E;
+    color: whitesmoke;
 }
+
 /*Footer*/
 .footer{
-    background: black;
+    background: #1a1a1a;
     color:white;
-    height:400px;
+    height:300px;
     position: relative;
     padding-top: 10px;
     margin-top: 10%;
@@ -19,12 +20,12 @@ html,body{
 }
 .footer .footer-content{
    
-    height:350px;
+    height:300px;
     display:flex;
 }
 .footer .footer-content .footer-section{
     flex:1;
-    padding:25px;
+    padding:20px;
 }
 .footer .footer-bottom{
     height:50px;
@@ -44,7 +45,7 @@ html,body{
     font-size: 35px;
 }
 .footer .footer-content .about  h1 span{
-    color:#cc0100;
+    color:white;
     font-size: 35px;
 }
 .footer .footer-content .about .contact span{
@@ -81,15 +82,15 @@ html,body{
 .footer .footer-content .links h2{
     font-size: 20px;
 }
-.footer .footer-content .links ul a:hover{
+/*.footer .footer-content .links ul a:hover{
     color:#cc0100;
     margin-left: 15px;
     transition: all .3s;
-}
+}*/
 .footer .footer-content .contact-form .contact-input{
     margin-bottom: 10px;
     line-height: 0.1rem;
-    padding :.7rem 1.2rem;
+    padding :.5rem 1.2rem;
 }
 .footer .footer-content .contact-form h2{
     font-size: 20px;
@@ -104,8 +105,8 @@ html,body{
 .btn-big{
     padding: .7rem 1.3rem;
     line-height: 0.5rem;
-    background: #cc0100;
-    color: white;
+    background: gray;
+    color: #ffffff;
 }
 
 .btn,
@@ -123,7 +124,7 @@ html,body{
 .nav-link{
    
     border: 1 px solid grey; 
-    color: black;
+    color: white;
 }
 .nav-tabs{
     list-style: none;
@@ -134,23 +135,23 @@ html,body{
 
 /* cart superscript */
 .cart-badge{
-    background-color: white;
+    background-color: #000000;
 }
 
 .btn-primary{
-    background:#cc0100 ;
+    background:gray ;
 }
 
 /*Search Bar*/
 
 .input-group-text{
-    background:#ebebeb;
+    background:#ffffff;
    
 
 }
 button.input-group-text{
     background:#cc0100;
-    color:white;
+    color:#000000;
     border: none;
 }
 input.form-control{
@@ -175,7 +176,7 @@ select.btn.mr-2{
 }
 .card-header {
     background: black;
-    color: white;
+    color: blue;
     text-align: center;
     padding:10px;
     font-size: 20px;
@@ -222,14 +223,14 @@ select.btn.mr-2{
 
 .card2{
   
-    background: #ebebeb;
+    background: blue;
   
     box-shadow: 15px solid black ;
     
 }
 .card-p
 {
-    color:#cc0100;
+    color:blue;
     font-weight: bold;
 }
 
@@ -239,7 +240,7 @@ select.btn.mr-2{
 
 .jumbotron h2 {
     margin-top: -20px;
-    color: red;
+    color: #E3E2DF;
     text-align: center;
     font-size: 50px;
 }
@@ -343,8 +344,8 @@ select.btn.mr-2{
 /* BUTTON ADD TO CART */
 
 .btn1{
-    color: #cc0100;
-    border-color: #cc0100;
+    color: #007bff;
+    border-color: #007bff;
     border-radius: 10px;
     
 }
@@ -413,3 +414,4 @@ select.btn.mr-2{
     width: 200px;
     padding: 5px;
 }
+

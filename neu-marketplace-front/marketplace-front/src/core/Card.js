@@ -6,7 +6,8 @@ import Badge from '@mui/material/Badge';
 import Typography from '@mui/material/Typography';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
-import moment from 'moment';
+import './Card.css';
+import Button from '@mui/material/Button';
 import { addItem, updateItem, removeItem } from './cartHelpers';
 
 const Cards = ({
@@ -22,6 +23,11 @@ const Cards = ({
   const [redirect, setRedirect] = useState(false);
   const [count, setCount] = useState(product.count);
 
+  const showProductDetails = () =>{
+    window.location.href="/product/" + product._id ;
+
+  }
+
   const showViewButton = showViewProductButton => {
     return (
       showViewProductButton && (
@@ -34,11 +40,12 @@ const Cards = ({
   const addToCart = () => {
     // console.log('added');
     addItem(product, setRedirect(true));
+    shouldRedirect(true);
   };
 
   const shouldRedirect = redirect => {
     if (redirect) {
-      return <Redirect to="/cart" />;
+      window.location.href="/cart";
     }
   };
 
@@ -54,9 +61,9 @@ const Cards = ({
 
   const showStock = quantity => {
     return quantity > 0 ? (
-      <span></span>
+      <span className="badge badge-primary badge-pill">Available</span>
     ) : (
-      <span className="badge badge-primary badge-pill">Sold out</span>
+      <span className="badge badge-primary badge-pill" style={{backgroundColor:"red"}}>Sold out</span>
     );
   };
 
@@ -98,8 +105,8 @@ const Cards = ({
     );
   };
   return (
-    <div className="card2 card">
-       <Card style={{height:"400px"}}>
+    <div>
+       <Card className = "productCard" style={{height:"450px"}}>
       {/* <CardMedia
         component="img"
         height="140"
@@ -121,9 +128,14 @@ const Cards = ({
         <Badge>
         {showStock(product.quantity)}
         </Badge>
-        {showViewButton(showViewProductButton)}
+        
+        <div style={{display:"flex", flexDirection: "row", justifyContent: 'space-between'}}>
+        <Button variant="contained" style={{backgroundColor:"blue"}} onClick={showProductDetails}> View Product </Button>
+        {/* {showViewButton(showViewProductButton)} */}
+        <Button variant="contained" style={{backgroundColor:"green"}} onClick={addToCart}> Add to cart </Button>
 
-        {showAddToCartBtn(showAddToCartButton)}
+        </div>
+        {/* {showAddToCartBtn(showAddToCartButton)} */}
 
         {showRemoveButton(showRemoveProductButton)}
 

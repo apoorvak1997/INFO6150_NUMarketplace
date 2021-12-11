@@ -33,6 +33,7 @@ const Product = (props) => {
     loadSingleProduct(productId);
   }, [props]);
 
+
   return (
     <div>
       <NavBar />

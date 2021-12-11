@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const AdminDashboard = () => {
+
   const {
     user: { _id, name, email, nuid, role },
   } = isAuthenticated();

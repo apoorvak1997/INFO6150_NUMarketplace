@@ -4,6 +4,7 @@ import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { createCategory } from "./apiAdmin";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const AddCategory = () => {
   const [name, setName] = useState("");
@@ -72,10 +73,16 @@ const AddCategory = () => {
 
   return (
     <div>
-      <Layout
-        title="Add a new category"
-        description={`G'day ${user.name}, ready to add a new category?`}
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        ADD A NEW CATEGORY{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2">
             {showSuccess()}
@@ -84,7 +91,7 @@ const AddCategory = () => {
             {goBack()}
           </div>
         </div>
-      </Layout>
+      </div>
       <Footer />
     </div>
   );

@@ -36,12 +36,13 @@ const Cards = ({
   const showViewButton = (showViewProductButton) => {
     return (
       showViewProductButton && (
-        <button
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "black" }}
           onClick={showProductDetails}
-          className="btn3 btn btn-outline-primary mt-2 mb-2 card-btn-1"
         >
           View Product
-        </button>
+        </Button>
       )
     );
   };
@@ -62,7 +63,7 @@ const Cards = ({
       showAddToCartButton && (
         <Button
           variant="contained"
-          style={{ backgroundColor: "green" }}
+          style={{ backgroundColor: "black" }}
           onClick={addToCart}
         >
           {" "}
@@ -166,7 +167,10 @@ const Cards = ({
           </Typography>
           <Typography gutterBottom variant="body2" color="text.secondary">
             ${product.price}
-            <Badge>{showStock(product.quantity)}</Badge>
+            <span style={{ float: "right" }}>
+              {" "}
+              <Badge>{showStock(product.quantity)}</Badge>
+            </span>
           </Typography>
 
           <div

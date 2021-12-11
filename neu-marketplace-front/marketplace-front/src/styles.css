@@ -527,3 +527,10 @@ select.btn.mr-2{
         
   }
 
+.black-color {
+    color: black;
+}
+
+.MuiButton-root .MuiButton-contained .MuiButton-containedPrimary .MuiButton-sizeMedium .MuiButton-containedSizeMedium .MuiButtonBase-root  .css-sghohy-MuiButtonBase-root-MuiButton-root{
+    background-color: gray !important;
+}

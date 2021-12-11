@@ -6,6 +6,7 @@ import Checkbox from "./Checkbox";
 import RadioBox from "./RadioBox";
 import { prices } from "./fixedPrices";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const Shop = () => {
   const [myFilters, setMyFilters] = useState({
@@ -98,44 +99,53 @@ const Shop = () => {
 
   return (
     <div>
-      <Layout
+      <NavBar />
+      {/* <Layout
         title="SHOP FOR YOURSELF..."
         description="Search and find products of your choice"
         className="container-fluid"
-      >
-        <div className="row heading">
-          <div className="col-2">
-            <h4>Filter by categories</h4>
-            <ul>
-              <Checkbox
-                categories={categories}
-                handleFilters={(filters) => handleFilters(filters, "category")}
-              />
-            </ul>
+      > */}
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        FIND YOUR PRODUCTS{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="row heading">
+        <div className="col-2">
+          <h4>Filter by categories</h4>
+          <ul>
+            <Checkbox
+              categories={categories}
+              handleFilters={(filters) => handleFilters(filters, "category")}
+            />
+          </ul>
 
-            <h4>Filter by price range</h4>
-            <div>
-              <RadioBox
-                prices={prices}
-                handleFilters={(filters) => handleFilters(filters, "price")}
-              />
-            </div>
-          </div>
-
-          <div className="col-10">
-            <h2 className="mb-4">Products</h2>
-            <div className="row">
-              {filteredResults.map((product, i) => (
-                <div key={i} className="col-4 mb-3">
-                  <Card product={product} />
-                </div>
-              ))}
-            </div>
-            <hr />
-            {loadMoreButton()}
+          <h4>Filter by price range</h4>
+          <div>
+            <RadioBox
+              prices={prices}
+              handleFilters={(filters) => handleFilters(filters, "price")}
+            />
           </div>
         </div>
-      </Layout>
+
+        <div className="col-10">
+          <h2 className="mb-4">Products</h2>
+          <div className="row">
+            {filteredResults.map((product, i) => (
+              <div key={i} className="col-4 mb-3">
+                <Card product={product} />
+              </div>
+            ))}
+          </div>
+          <hr />
+          {loadMoreButton()}
+        </div>
+      </div>
+      {/* </Layout> */}
       <Footer />
     </div>
   );

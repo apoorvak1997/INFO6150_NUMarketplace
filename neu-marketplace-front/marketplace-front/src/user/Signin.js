@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Layout from "../core/Layout";
 import { signin, authenticate, isAuthenticated } from "../auth";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const Signin = () => {
   const [values, setValues] = useState({
@@ -94,23 +95,26 @@ const Signin = () => {
     }
   };
 
-
   return (
     <div>
-      <Layout
-        title="Sign In"
-        description="Signin to Boston Student Marketplace"
-        className="container col-md-8 offset-md-2"
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        SIGN INTO MARKETPLACE{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         {showLoading()}
         {showError()}
         {signUpForm()}
         {redirectUser()}
-      </Layout>
+      </div>
       <Footer />
     </div>
   );
-
 };
 
 export default Signin;

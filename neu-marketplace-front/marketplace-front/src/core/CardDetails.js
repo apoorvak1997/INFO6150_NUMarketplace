@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Badge from '@mui/material/Badge';
-import Typography from '@mui/material/Typography';
-import { Link, Redirect } from 'react-router-dom';
-import moment from 'moment';
-import { addItem, updateItem, removeItem } from './cartHelpers';
-import ShowImageDetails from './ShowImageDetails';
-import Button from '@mui/material/Button';
-import './Card.css';
-=======
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -23,7 +9,7 @@ import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
 import ShowImageDetails from "./ShowImageDetails";
 import Button from "@mui/material/Button";
->>>>>>> 599654dddd9b0841f36ae130d3ab33aa5a02540e
+import "./Card.css";
 
 const CardDetails = ({
   product,
@@ -42,9 +28,7 @@ const CardDetails = ({
     return (
       showViewProductButton && (
         <Link to={`/product/${product._id}`} className="mr-2">
-          <button className="btn3 btn btn-outline-primary mt-2 mb-2 card-btn-1">
-            View Product
-          </button>
+          <Button>View Product</Button>
         </Link>
       )
     );
@@ -66,7 +50,7 @@ const CardDetails = ({
       showAddToCartButton && (
         <Button
           variant="contained"
-          style={{ backgroundColor: "green", marginLeft: "40%" }}
+          style={{ backgroundColor: "black", marginLeft: "40%" }}
           onClick={addToCart}
         >
           {" "}
@@ -78,12 +62,16 @@ const CardDetails = ({
 
   const showStock = (quantity) => {
     return quantity > 0 ? (
-      <span></span>
+      <span className="badge badge-primary badge-pill">Available</span>
     ) : (
-      <span className="badge badge-primary badge-pill">Sold out</span>
+      <span
+        className="badge badge-primary badge-pill"
+        style={{ backgroundColor: "red" }}
+      >
+        Sold out
+      </span>
     );
   };
-
   const handleChange = (productId) => (event) => {
     setRun(!run); // run useEffect in parent Cart
     setCount(event.target.value < 1 ? 1 : event.target.value);
@@ -169,8 +157,9 @@ const CardDetails = ({
           >
             " {product.description} "
           </Typography>
-
-          <Badge>{showStock(product.quantity)}</Badge>
+          <span style={{ float: "right" }}>
+            <Badge>{showStock(product.quantity)}</Badge>
+          </span>
         </CardContent>
         <CardActions>
           {/* <Button size="small">Share</Button>

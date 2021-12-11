@@ -4,6 +4,7 @@ import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getProducts, deleteProduct } from "./apiAdmin";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -36,11 +37,16 @@ const ManageProducts = () => {
 
   return (
     <div>
-      <Layout
-        title="Manage Products"
-        description="Perform CRUD on products"
-        className="container-fluid"
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        MANAGE PRODUCTS{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         <div className="row">
           <div className="col-12">
             <h2 className="text-center">Total {products.length} products</h2>
@@ -49,7 +55,7 @@ const ManageProducts = () => {
               {products.map((p, i) => (
                 <li
                   key={i}
-                  className="rw list-group-item d-flex justify-content-between align-items-center"
+                  className="rw list-group-item d-flex justify-content-between align-items-center black-color"
                 >
                   <strong>{p.name}</strong>
                   {/* <Link to={`/admin/product/update/${p._id}`}>
@@ -83,7 +89,7 @@ const ManageProducts = () => {
             <br />
           </div>
         </div>
-      </Layout>
+      </div>
       <Footer />
     </div>
   );

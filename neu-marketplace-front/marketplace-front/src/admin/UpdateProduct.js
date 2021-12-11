@@ -4,6 +4,7 @@ import { isAuthenticated } from "../auth";
 import { Link, Redirect } from "react-router-dom";
 import { getProduct, getCategories, updateProduct } from "./apiAdmin";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const UpdateProduct = ({ match }) => {
   const [values, setValues] = useState({
@@ -222,10 +223,16 @@ const UpdateProduct = ({ match }) => {
 
   return (
     <div>
-      <Layout
-        title="Add a new product"
-        description={`G'day ${user.name}, ready to add a new product?`}
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        UPDATE PRODUCT DETAILS{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2">
             {showLoading()}
@@ -235,7 +242,7 @@ const UpdateProduct = ({ match }) => {
             {redirectUser()}
           </div>
         </div>
-      </Layout>
+      </div>
       <Footer />
     </div>
   );

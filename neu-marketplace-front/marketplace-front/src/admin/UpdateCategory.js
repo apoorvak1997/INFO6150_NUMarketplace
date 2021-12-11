@@ -7,6 +7,7 @@ import { getCategory, updateCategory } from "./apiAdmin";
 // http://localhost:3000/admin/category/update/5cd0258f2793ec6e100bc191
 
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const UpdateCategory = ({ match }) => {
   const [values, setValues] = useState({
@@ -134,11 +135,16 @@ const UpdateCategory = ({ match }) => {
 
   return (
     <div>
-      <Layout
-        title={`Hi ${user.name}`}
-        description={`This is Update Product Action Page`}
-        className="container-fluid"
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        Hi {user.name}{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2 m-b-250 mb-5">
             {showError()}
@@ -147,7 +153,7 @@ const UpdateCategory = ({ match }) => {
             {redirectUser()}
           </div>
         </div>
-      </Layout>
+      </div>
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { createProduct, getCategories } from "./apiAdmin";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const AddProduct = () => {
   const [values, setValues] = useState({
@@ -191,10 +192,16 @@ const AddProduct = () => {
 
   return (
     <div>
-      <Layout
-        title="Add a new product"
-        description={`G'day ${user.name}, ready to add a new product?`}
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        ADD A NEW PRODUCT{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2">
             {showLoading()}
@@ -203,8 +210,8 @@ const AddProduct = () => {
             {newPostForm()}
           </div>
         </div>
-        <Footer />
-      </Layout>
+      </div>
+      <Footer />
     </div>
   );
 };

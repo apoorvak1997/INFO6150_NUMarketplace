@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { listOrders, getStatusValues, updateOrderStatus } from "./apiAdmin";
 import moment from "moment";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -85,11 +86,16 @@ const Orders = () => {
 
   return (
     <div>
-      <Layout
-        title="Orders"
-        description={`G'day ${user.name}, you can manage all the orders here`}
-        className="container-fluid"
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        ORDERS{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2">
             {showOrdersLength()}
@@ -106,18 +112,22 @@ const Orders = () => {
                   </h3>
 
                   <ul className="list-group mb-2">
-                    <li className="list-group-item">{showStatus(o)}</li>
-                    <li className="list-group-item">
+                    <li className="list-group-item black-color">
+                      {showStatus(o)}
+                    </li>
+                    <li className="list-group-item black-color">
                       Transaction ID: {o.transaction_id}
                     </li>
-                    <li className="list-group-item">Amount: ${o.amount}</li>
-                    <li className="list-group-item">
-                     Ordered by: {o.user.name} 
+                    <li className="list-group-item black-color">
+                      Amount: ${o.amount}
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item black-color">
+                      Ordered by: {o.user.name}
+                    </li>
+                    <li className="list-group-item black-color">
                       Ordered on: {moment(o.createdAt).fromNow()}
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item black-color">
                       Delivery address: {o.address}
                     </li>
                   </ul>
@@ -146,7 +156,7 @@ const Orders = () => {
             })}
           </div>
         </div>
-      </Layout>
+      </div>
       <Footer />
     </div>
   );

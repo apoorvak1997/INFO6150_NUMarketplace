@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import { signup } from "../auth";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const Signup = () => {
   const [values, setValues] = useState({
@@ -39,9 +40,6 @@ const Signup = () => {
           error: "",
           success: true,
         });
-
-    
-
       }
     });
   };
@@ -65,7 +63,6 @@ const Signup = () => {
           className="dropdown"
           onChange={handleChange("role")}
           value={roleValue}
-
         >
           <option value={0}>Buyer</option>
           <option value={1}>Seller</option>
@@ -118,15 +115,20 @@ const Signup = () => {
 
   return (
     <div>
-      <Layout
-        title="Sign Up"
-        description="Signup to Boston Student Marketplace"
-        className="container col-md-8 offset-md-2"
-      >
+      <NavBar />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 className="heading" style={{ textAlign: "center" }}>
+        {" "}
+        LET'S GET YOU SIGNED UP TO MARKETPLACE{" "}
+      </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <div className="container">
         {showSuccess()}
         {showError()}
         {signUpForm()}
-      </Layout>
+      </div>
       <Footer />
     </div>
   );

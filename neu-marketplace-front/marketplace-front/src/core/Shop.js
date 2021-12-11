@@ -103,7 +103,7 @@ const Shop = () => {
         description="Search and find products of your choice"
         className="container-fluid"
       >
-        <div className="row">
+        <div className="row heading">
           <div className="col-2">
             <h4>Filter by categories</h4>
             <ul>

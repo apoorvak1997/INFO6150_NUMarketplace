@@ -17,7 +17,7 @@ const Cart = () => {
 
   const showItems = (items) => {
     return (
-      <div>
+      <div style={{margin: "0 auto"}}>
         <h4 style={{ textAlign: "center" }}>
           Your cart has {`${items.length}`} items
         </h4>
@@ -57,16 +57,16 @@ const Cart = () => {
       > */}
       <br />
       <hr style={{ backgroundColor: "white" }} />
-      <h2 style={{ textAlign: "center" }}> MY CART </h2>
+      <h2 className="heading" style={{ textAlign: "center" }}> MY CART </h2>
       <hr style={{ backgroundColor: "white" }} />
       <br />
-      <h4 style={{ textAlign: "center" }}> CART SUMMARY </h4>
+      <h4 className="heading" style={{ textAlign: "center" }}> CART SUMMARY </h4>
       <div>
-        <div className="col-6" style={{ margin: "0 auto" }}>
+        <div className="col-6">
           {items.length > 0 ? showItems(items) : noItemsMessage()}
         </div>
 
-        <div className="col-6">
+        <div className="col-6" style={{margin:"0 auto"}}>
           <hr />
           <Checkout products={items} setRun={setRun} run={run} />
         </div>

@@ -4,6 +4,8 @@ import Cards from "./Card";
 import CardDetails from "./CardDetails";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { style } from "@mui/system";
+import "../styles.css";
 
 const Product = (props) => {
   const [product, setProduct] = useState({});
@@ -39,10 +41,10 @@ const Product = (props) => {
       <NavBar />
       <div className="container" style={{ padding: "3%" }}>
         <hr />
-        <h3 style={{ textAlign: "center" }}> {product.name} </h3>
+        <h3 style={{ textAlign: "center", color:"white" }}> {product.name} </h3>
         <hr style={{ backgroundColor: "white" }} />
       </div>
-      <div style={{ width: "50%", margin: "0 auto" }}>
+      <div className ="productdetail" style={{ width: "50%", margin: "0 auto" }}>
         {product && product.description && (
           <CardDetails
             style={{ height: "100%" }}
@@ -53,9 +55,9 @@ const Product = (props) => {
       </div>
       <br />
       <hr style={{ backgroundColor: "white" }} />
-      <h3 style={{ textAlign: "center" }}>Related products</h3>
+      <h3 style={{ textAlign: "center", color:"white" }}>Related products</h3>
       <hr style={{ backgroundColor: "white" }} />
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div className ="relatedproducts" style={{ display: "flex", flexDirection: "row" }}>
         {relatedProduct.map((p, i) => (
           <div key={i} className="col-4 mb-3">
             <Cards product={p} />

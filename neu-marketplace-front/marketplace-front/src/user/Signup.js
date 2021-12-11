@@ -120,7 +120,7 @@ const Signup = () => {
     <div>
       <Layout
         title="Sign Up"
-        description="Signup to NEU Marketplace"
+        description="Signup to Boston Student Marketplace"
         className="container col-md-8 offset-md-2"
       >
         {showSuccess()}

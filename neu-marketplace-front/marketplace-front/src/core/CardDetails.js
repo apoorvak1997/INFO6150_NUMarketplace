@@ -9,6 +9,7 @@ import moment from 'moment';
 import { addItem, updateItem, removeItem } from './cartHelpers';
 import ShowImageDetails from './ShowImageDetails';
 import Button from '@mui/material/Button';
+import './Card.css';
 
 const CardDetails = ({
   product,

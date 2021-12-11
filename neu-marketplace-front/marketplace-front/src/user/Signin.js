@@ -99,7 +99,7 @@ const Signin = () => {
     <div>
       <Layout
         title="Sign In"
-        description="Signin to NEU Marketplace"
+        description="Signin to Boston Student Marketplace"
         className="container col-md-8 offset-md-2"
       >
         {showLoading()}

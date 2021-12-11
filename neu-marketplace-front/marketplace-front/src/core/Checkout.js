@@ -196,12 +196,15 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 
     return (
         <div>
+        <div style= {{justifyContent:"center"}}>
             <h2>Total: ${getTotal()}</h2>
             {showLoading(data.loading)}
             {showSuccess(data.success)}
             {showError(data.error)}
             {showCheckout()}
         </div>
+        </div>
+        
     );
 };
 

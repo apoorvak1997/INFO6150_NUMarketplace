@@ -1,6 +1,15 @@
 .productCard{
  background-color: #BFBFBF!important;
  color: white!important;
+ 
+}
+@media only screen and (max-width: 600px) {
+    
+    .product-img .productDetailsCard{
+        height:400px !important;
+    }
+    
+    
 }
 input,
 textarea {

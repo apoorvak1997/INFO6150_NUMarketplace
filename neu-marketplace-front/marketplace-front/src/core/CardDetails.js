@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+import React, { useState } from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Badge from '@mui/material/Badge';
+import Typography from '@mui/material/Typography';
+import { Link, Redirect } from 'react-router-dom';
+import moment from 'moment';
+import { addItem, updateItem, removeItem } from './cartHelpers';
+import ShowImageDetails from './ShowImageDetails';
+import Button from '@mui/material/Button';
+import './Card.css';
+=======
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -9,6 +23,7 @@ import moment from "moment";
 import { addItem, updateItem, removeItem } from "./cartHelpers";
 import ShowImageDetails from "./ShowImageDetails";
 import Button from "@mui/material/Button";
+>>>>>>> 599654dddd9b0841f36ae130d3ab33aa5a02540e
 
 const CardDetails = ({
   product,

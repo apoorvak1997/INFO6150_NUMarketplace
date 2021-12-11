@@ -39,6 +39,9 @@ const Signup = () => {
           error: "",
           success: true,
         });
+
+    
+
       }
     });
   };
@@ -62,6 +65,7 @@ const Signup = () => {
           className="dropdown"
           onChange={handleChange("role")}
           value={roleValue}
+
         >
           <option value={0}>Buyer</option>
           <option value={1}>Seller</option>
@@ -116,7 +120,7 @@ const Signup = () => {
     <div>
       <Layout
         title="Sign Up"
-        description="Signup to NEU Marketplace"
+        description="Signup to Boston Student Marketplace"
         className="container col-md-8 offset-md-2"
       >
         {showSuccess()}

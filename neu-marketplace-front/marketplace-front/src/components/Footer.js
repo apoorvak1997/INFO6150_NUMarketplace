@@ -6,13 +6,13 @@ export default function Footer() {
                 <div class="footer-content">
                     <div class="footer-section about">
 
-                        <h1 class="logo-text"><span>NEU</span>Marketplace</h1>
+                        <h1 class="logo-text"><span>Boston Student </span>Marketplace</h1>
                         <p>
-                            Serving Huskies Better With Their Daily Needs!
+                            Serving Students Better!
                         </p>
                         <div class="contact">
-                            <span><i class="fas fa-phone"></i>&nbsp; 123-456-7890</span>
-                            <span><i class="fas fa-envelope"></i>&nbsp; info@neumarketplace.com</span>
+                            <span><i class="fas fa-phone"></i>&nbsp; 617-373-3499</span>
+                            <span><i class="fas fa-envelope"></i>&nbsp; info@bsmarketplace.com</span>
                         </div>
                         <div class="socials">
                             <a href="#"><i class="fab fa-facebook"></i></a>
@@ -21,34 +21,19 @@ export default function Footer() {
                             <a href="#"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
-                    <div class="footer-section links">
-                        <h2>Quick Links</h2>
-                        <br />
-                        <ul>
-                            <a href="#">
-                                <li>Events</li>
-                            </a>
-                            <a href="#">
-                                <li>Our Team</li>
-                            </a>
-                            <a href="#">
-                                <li>Blogs</li>
-                            </a>
-                        </ul>
-                    </div>
                     <div class="footer-section contact-form">
                         <h2>Contact Us</h2>
                         <br />
                         <form action="index.html" method="post">
                             <input type="email" name="email" class="text-input contact-input" placeholder="Your Email Address..." />
-                            <input name="message" class="text-input contact-input" placeholder="Your Message.." />
+                            <input style ={{marginLeft:"5%"}}name="message" class="text-input contact-input" placeholder="Your Message.." />
                             <br />
                         <button type="submit" class="btn btn-big"><span></span>Send</button>
                         </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy;neumarketplace.com | Designed by NEU Marketplace Team
+                &copy;bostonstudentmarketplace.com | Designed by the Boston Student Marketplace Team
   </div>
 </div >
     );

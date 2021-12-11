@@ -117,7 +117,6 @@ export default function PrimarySearchAppBar() {
             <HomeIcon/>
           </Badge>
         </IconButton>
-        <p>Messages</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -157,7 +156,7 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-        <img src={Logo} style={{"backgroundColor": "red","padding":"2%","width": "45px","height":"45px" }} alt =""/>
+        <img src={Logo} style={{"backgroundColor": "white","padding":"2%","width": "45px","height":"45px" }} alt =""/>
       
           </IconButton>
           <Typography
@@ -167,7 +166,7 @@ export default function PrimarySearchAppBar() {
             style={{letterSpacing:"1px", fontSize: "48px"}}
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            NU Marketplace
+            Boston Marketplace
           </Typography>
           {/* <Search>
             <SearchIconWrapper>
@@ -178,6 +177,18 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search> */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>	
+            <IconButton	
+              size="large"	
+              aria-label="show more"	
+              aria-controls={mobileMenuId}	
+              aria-haspopup="true"	
+              onClick={handleMobileMenuOpen}	
+              color="inherit"	
+            >	
+              <MoreIcon />	
+            </IconButton>
+            </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <Menus/>

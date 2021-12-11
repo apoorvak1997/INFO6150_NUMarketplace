@@ -63,16 +63,6 @@ exports.update = (req, res) => {
             }
         }
 
-        if (nuid) {
-            if (nuid.length == 9) {
-                return res.status(400).json({
-                    error: 'NUID should be min 9 character long'
-                });
-            } else {
-                user.nuid = nuid;
-            }
-        }
-
         user.save((err, updatedUser) => {
             if (err) {
                 console.log('USER UPDATE ERROR', err);

@@ -38,31 +38,30 @@ const Product = (props) => {
     <div>
       <NavBar />
       <div className="container" style={{ padding: "3%" }}>
-        <hr style={{ backgroundColor: "white" }} />
-        <h3 style={{ textAlign: "center" }}> {product.name} </h3>
         <hr />
+        <h3 style={{ textAlign: "center" }}> {product.name} </h3>
+        <hr style={{ backgroundColor: "white" }} />
       </div>
-      <div className="row">
-        <div className="col-8">
-          {product && product.description && (
-            <CardDetails
-              style={{ height: "100%" }}
-              product={product}
-              showViewProductButton={false}
-            />
-          )}
-        </div>
-
-        <div className="col-4">
-          <h4>Related products</h4>
-          {relatedProduct.map((p, i) => (
-            <div className="mb-3" key={i}>
-              <Cards product={p} />
-            </div>
-          ))}
-        </div>
+      <div style={{ width: "50%", margin: "0 auto" }}>
+        {product && product.description && (
+          <CardDetails
+            style={{ height: "100%" }}
+            product={product}
+            showViewProductButton={false}
+          />
+        )}
       </div>
-      <Footer />
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h3 style={{ textAlign: "center" }}>Related products</h3>
+      <hr style={{ backgroundColor: "white" }} />
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        {relatedProduct.map((p, i) => (
+          <div key={i} className="col-4 mb-3">
+            <Cards product={p} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

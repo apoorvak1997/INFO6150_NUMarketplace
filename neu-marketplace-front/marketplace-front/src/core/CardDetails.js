@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Badge from '@mui/material/Badge';
-import Typography from '@mui/material/Typography';
-import { Link, Redirect } from 'react-router-dom';
-import moment from 'moment';
-import { addItem, updateItem, removeItem } from './cartHelpers';
-import ShowImageDetails from './ShowImageDetails';
-import Button from '@mui/material/Button';
+import React, { useState } from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Badge from "@mui/material/Badge";
+import Typography from "@mui/material/Typography";
+import { Link, Redirect } from "react-router-dom";
+import moment from "moment";
+import { addItem, updateItem, removeItem } from "./cartHelpers";
+import ShowImageDetails from "./ShowImageDetails";
+import Button from "@mui/material/Button";
 
 const CardDetails = ({
   product,
@@ -16,18 +16,20 @@ const CardDetails = ({
   showAddToCartButton = true,
   cartUpdate = false,
   showRemoveProductButton = false,
-  setRun = f => f,
-  run = undefined
+  setRun = (f) => f,
+  run = undefined,
   // changeCartSize
 }) => {
   const [redirect, setRedirect] = useState(false);
   const [count, setCount] = useState(product.count);
 
-  const showViewButton = showViewProductButton => {
+  const showViewButton = (showViewProductButton) => {
     return (
       showViewProductButton && (
         <Link to={`/product/${product._id}`} className="mr-2">
-          <button className="btn3 btn btn-outline-primary mt-2 mb-2 card-btn-1">View Product</button>
+          <button className="btn3 btn btn-outline-primary mt-2 mb-2 card-btn-1">
+            View Product
+          </button>
         </Link>
       )
     );
@@ -36,34 +38,38 @@ const CardDetails = ({
     // console.log('added');
     addItem(product, setRedirect(true));
     shouldRedirect(true);
-
   };
 
-  const shouldRedirect = redirect => {
+  const shouldRedirect = (redirect) => {
     if (redirect) {
-      window.location.href="/cart";
+      window.location.href = "/cart";
     }
   };
 
-  const showAddToCartBtn = showAddToCartButton => {
+  const showAddToCartBtn = (showAddToCartButton) => {
     return (
       showAddToCartButton && (
-        <button onClick={addToCart} className="btn1 btn btn-outline-warning mt-2 mb-2 card-btn-1">
-          Add to cart
-        </button>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "green", marginLeft: "40%" }}
+          onClick={addToCart}
+        >
+          {" "}
+          Add to cart{" "}
+        </Button>
       )
     );
   };
 
-  const showStock = quantity => {
+  const showStock = (quantity) => {
     return quantity > 0 ? (
-        <span></span>
+      <span></span>
     ) : (
       <span className="badge badge-primary badge-pill">Sold out</span>
     );
   };
 
-  const handleChange = productId => event => {
+  const handleChange = (productId) => (event) => {
     setRun(!run); // run useEffect in parent Cart
     setCount(event.target.value < 1 ? 1 : event.target.value);
     if (event.target.value >= 1) {
@@ -71,7 +77,7 @@ const CardDetails = ({
     }
   };
 
-  const showCartUpdateOptions = cartUpdate => {
+  const showCartUpdateOptions = (cartUpdate) => {
     return (
       cartUpdate && (
         <div>
@@ -79,13 +85,18 @@ const CardDetails = ({
             <div className="input-group-prepend">
               <span className="input-group-text">Adjust Quantity</span>
             </div>
-            <input type="number" className="form-control" value={count} onChange={handleChange(product._id)} />
+            <input
+              type="number"
+              className="form-control"
+              value={count}
+              onChange={handleChange(product._id)}
+            />
           </div>
         </div>
       )
     );
   };
-  const showRemoveButton = showRemoveProductButton => {
+  const showRemoveButton = (showRemoveProductButton) => {
     return (
       showRemoveProductButton && (
         <button
@@ -101,65 +112,63 @@ const CardDetails = ({
     );
   };
   return (
-    
     <div className="card2 card">
-        
-       <Card style={{height:"800px"}}>
-       
-       
-      {/* <CardMedia
+      <Card style={{ height: "800px" }}>
+        {/* <CardMedia
         component="img"
         height="140"
         image=""
         alt="product.name"
       > */}
-      <div>
-        <ShowImageDetails style={{height:"100%"}}item={product} url="product" />
+        <div>
+          <ShowImageDetails
+            style={{ height: "100%" }}
+            item={product}
+            url="product"
+          />
         </div>
-      <CardContent>
+        <CardContent>
           <Typography variant="p" color="text.secondary" textAlign="right">
-        Added {moment(product.createdAt).fromNow()}
-        </Typography>
-          <hr/>
-        <div style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
-        <Typography gutterBottom variant="h6" color="text.secondary">
-          Price : ${product.price}
-        </Typography>
-        <Typography gutterBottom variant="6" color="text.secondary">
-          Category: {product.category && product.category.name}
-        </Typography>
-        </div>
-        <hr/>
-        <Typography gutterBottom variant="p" color="text.secondary" textAlign="center">
-        " {product.description} "
-        
-        </Typography>
-        
-        <Button variant="contained" style={{backgroundColor:"green", marginLeft:"40%"}} onClick={addToCart}> Add to cart </Button>
-        
+            Added {moment(product.createdAt).fromNow()}
+          </Typography>
+          <hr />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
+            <Typography gutterBottom variant="h6" color="text.secondary">
+              Price : ${product.price}
+            </Typography>
+            <Typography gutterBottom variant="6" color="text.secondary">
+              Category: {product.category && product.category.name}
+            </Typography>
+          </div>
+          <Typography
+            gutterBottom
+            variant="p"
+            color="text.secondary"
+            textAlign="center"
+          >
+            " {product.description} "
+          </Typography>
 
-
-        <Badge>
-        {showStock(product.quantity)}
-        </Badge>
-        {showViewButton(showViewProductButton)}
-
-{/* {showAddToCartBtn(showAddToCartButton)} */}
-
-{showRemoveButton(showRemoveProductButton)}
-
-{showCartUpdateOptions(cartUpdate)}
-
-      </CardContent>
-      <CardActions>
-        {/* <Button size="small">Share</Button>
+          <Badge>{showStock(product.quantity)}</Badge>
+        </CardContent>
+        <CardActions>
+          {/* <Button size="small">Share</Button>
         <Button size="small">Learn More</Button> */}
-        
-        <br />
+          {showViewButton(showViewProductButton)}
 
+          {showAddToCartBtn(showAddToCartButton)}
 
-      </CardActions>
-    </Card>
+          {showRemoveButton(showRemoveProductButton)}
+
+          {showCartUpdateOptions(cartUpdate)}
+        </CardActions>
+      </Card>
       {/* <div className="card-header card-header-1 ">{product.name}</div>
       <div className="card-body">
         {shouldRedirect(redirect)}

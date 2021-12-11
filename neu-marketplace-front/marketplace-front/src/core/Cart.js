@@ -5,6 +5,7 @@ import { getCart } from "./cartHelpers";
 import Card from "./Card";
 import Checkout from "./Checkout";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const Cart = () => {
   const [items, setItems] = useState([]);
@@ -17,19 +18,25 @@ const Cart = () => {
   const showItems = (items) => {
     return (
       <div>
-        <h2>Your cart has {`${items.length}`} items</h2>
+        <h4 style={{ textAlign: "center" }}>
+          Your cart has {`${items.length}`} items
+        </h4>
         <hr />
-        {items.map((product, i) => (
-          <Card
-            key={i}
-            product={product}
-            showAddToCartButton={false}
-            cartUpdate={true}
-            showRemoveProductButton={true}
-            setRun={setRun}
-            run={run}
-          />
-        ))}
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          {items.map((product, i) => (
+            <div key={i} className="col-6 mb-4">
+              <Card
+                key={i}
+                product={product}
+                showAddToCartButton={false}
+                cartUpdate={true}
+                showRemoveProductButton={true}
+                setRun={setRun}
+                run={run}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     );
   };
@@ -42,23 +49,29 @@ const Cart = () => {
 
   return (
     <div>
-      <Layout
+      <NavBar />
+      {/* <Layout
         title="Shopping Cart"
         description="Following items have been added to your cart.."
         className="container-fluid"
-      >
-        <div className="row">
-          <div className="col-6">
-            {items.length > 0 ? showItems(items) : noItemsMessage()}
-          </div>
-
-          <div className="col-6">
-            <h2 className="mb-4">Your cart summary</h2>
-            <hr />
-            <Checkout products={items} setRun={setRun} run={run} />
-          </div>
+      > */}
+      <br />
+      <hr style={{ backgroundColor: "white" }} />
+      <h2 style={{ textAlign: "center" }}> MY CART </h2>
+      <hr style={{ backgroundColor: "white" }} />
+      <br />
+      <h4 style={{ textAlign: "center" }}> CART SUMMARY </h4>
+      <div>
+        <div className="col-6" style={{ margin: "0 auto" }}>
+          {items.length > 0 ? showItems(items) : noItemsMessage()}
         </div>
-      </Layout>
+
+        <div className="col-6">
+          <hr />
+          <Checkout products={items} setRun={setRun} run={run} />
+        </div>
+      </div>
+      {/* </Layout> */}
       <Footer />
     </div>
   );
